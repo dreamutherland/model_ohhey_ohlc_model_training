@@ -1,0 +1,13 @@
+FROM docker.io/jleighsutherland/dream-base:v4
+
+WORKDIR /app
+
+COPY model /app/model
+
+COPY gradio-serving.py /app/gradio-serving.py
+
+RUN pip install -r model/requirements.txt
+
+EXPOSE 7860
+
+CMD ["python3", "gradio-serving.py", "--predicted-features", "['jas_ohlc_extended__adj_close_normalised_change_1d']", "--model-name", "model_ohhey_ohlc_model_training", "--model-serving-url", "http://model-ohhey-ohlc-model-training-api-service.mlserve-model-ohhey-ohlc-model-training.svc.cluster.local:5000/invocations"]
