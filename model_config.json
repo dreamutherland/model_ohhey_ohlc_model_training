@@ -1,0 +1,53 @@
+{
+    "config": {
+        "preprocessing": {
+            "features_to_drop": [],
+            "features_to_lag": {}
+        },
+        "profile_data": {
+            "active": false,
+            "settings": {
+                "container": {
+                    "cpu_limit": "8000m"
+                },
+                "html": {
+                    "inline": false,
+                    "minify": true
+                },
+                "profiling": {
+                    "correlations": false,
+                    "duplicates": false,
+                    "interactions": false,
+                    "missing_diagrams": false,
+                    "samples": true
+                },
+                "sampling": {
+                    "random_state": 1,
+                    "sample_size": 0.01
+                }
+            }
+        },
+        "training": {
+            "early_stopping_rounds": 100,
+            "enable_categorical": true,
+            "num_boost_rounds": 10000,
+            "params": {
+                "objective": "reg:squarederror",
+                "tree_method": "exact"
+            },
+            "shuffle": true,
+            "test_size": 0.3,
+            "train_size": 0.7,
+            "verbose_eval": 50
+        },
+        "xvalidation": {
+            "early_stopping_rounds": 20,
+            "nfold": 5
+        }
+    },
+    "features_to_predict": [
+        "jas_ohlc_extended__adj_close_normalised_change_1d"
+    ],
+    "name": "ohhey ohlc",
+    "type": "xgboost"
+}
