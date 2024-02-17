@@ -1,0 +1,2 @@
+# model_ohhey_ohlc_model_training
+Deployment dependencies for model_ohhey_ohlc_model_training
